@@ -7,14 +7,16 @@ const contactRoutes = require("./routes/contactRoutes.js");
 dotenv.config();
 const app = express();
 
-// ✅ Allow frontend origin for CORS
+const cors = require("cors");
+
 app.use(
   cors({
-    origin: "http://localhost:5173", // Or your Vercel domain in production
-    methods: ["GET", "POST"],
+    origin: "https://client-portfolio-sigma-liard.vercel.app", // ✅ Your Vercel frontend domain
+    methods: ["POST"],
     allowedHeaders: ["Content-Type"],
   })
 );
+
 
 // Middleware
 app.use(express.json());
